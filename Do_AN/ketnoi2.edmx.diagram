@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="50034e6e2e4246f0bb27eba538b2c58c" Name="Diagram1">
+        <EntityTypeShape EntityType="QLBHModel.CTHD" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBHModel.HOADON" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBHModel.LOAISP" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBHModel.LUONG" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBHModel.NHANVIEN" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBHModel.PHANHOI" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBHModel.SANPHAM" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBHModel.TAIKHOAN" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
+        <AssociationConnector Association="QLBHModel.fk01_CTHD" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBHModel.fk02_CTHD" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBHModel.fk02_HD" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBHModel.fklsp_SP" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBHModel.fk02_NV" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBHModel.fk01_PH" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBHModel.fk01_TK" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLBHModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CTHD">
+    <Key>
+      <PropertyRef Name="SOHD" />
+      <PropertyRef Name="MASP" />
+    </Key>
+    <Property Name="SOHD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MASP" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SL" Type="Int32" />
+    <NavigationProperty Name="HOADON" Relationship="Self.fk01_CTHD" FromRole="CTHD" ToRole="HOADON" />
+    <NavigationProperty Name="SANPHAM" Relationship="Self.fk02_CTHD" FromRole="CTHD" ToRole="SANPHAM" />
+  </EntityType>
+  <EntityType Name="HOADON">
+    <Key>
+      <PropertyRef Name="SOHD" />
+    </Key>
+    <Property Name="SOHD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NGHD" Type="DateTime" Precision="3" />
+    <Property Name="MANV" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="TRIGIA" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="CTHDs" Relationship="Self.fk01_CTHD" FromRole="HOADON" ToRole="CTHD" />
+    <NavigationProperty Name="NHANVIEN" Relationship="Self.fk02_HD" FromRole="HOADON" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="LOAISP">
+    <Key>
+      <PropertyRef Name="MALOAI" />
+    </Key>
+    <Property Name="MALOAI" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TENLOAI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SANPHAMs" Relationship="Self.fklsp_SP" FromRole="LOAISP" ToRole="SANPHAM" />
+  </EntityType>
+  <EntityType Name="LUONG">
+    <Key>
+      <PropertyRef Name="MALUONG" />
+    </Key>
+    <Property Name="MALUONG" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SOLUONG" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="NHANVIENs" Relationship="Self.fk02_NV" FromRole="LUONG" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MANV" />
+    </Key>
+    <Property Name="MANV" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HOTEN" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MAIL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MACV" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="MALUONG" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="HOADONs" Relationship="Self.fk02_HD" FromRole="NHANVIEN" ToRole="HOADON" />
+    <NavigationProperty Name="LUONG" Relationship="Self.fk02_NV" FromRole="NHANVIEN" ToRole="LUONG" />
+    <NavigationProperty Name="PHANHOIs" Relationship="Self.fk01_PH" FromRole="NHANVIEN" ToRole="PHANHOI" />
+    <NavigationProperty Name="TAIKHOANs" Relationship="Self.fk01_TK" FromRole="NHANVIEN" ToRole="TAIKHOAN" />
+  </EntityType>
+  <EntityType Name="PHANHOI">
+    <Key>
+      <PropertyRef Name="SOPH" />
+    </Key>
+    <Property Name="SOPH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MANV" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="NGPH" Type="DateTime" Precision="3" />
+    <Property Name="LOIPH" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="NHANVIEN" Relationship="Self.fk01_PH" FromRole="PHANHOI" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="SANPHAM">
+    <Key>
+      <PropertyRef Name="MASP" />
+    </Key>
+    <Property Name="MASP" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TENSP" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="MALOAI" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="DVT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="GIA" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="CTHDs" Relationship="Self.fk02_CTHD" FromRole="SANPHAM" ToRole="CTHD" />
+    <NavigationProperty Name="LOAISP" Relationship="Self.fklsp_SP" FromRole="SANPHAM" ToRole="LOAISP" />
+  </EntityType>
+  <EntityType Name="TAIKHOAN">
+    <Key>
+      <PropertyRef Name="MACV" />
+      <PropertyRef Name="MANV" />
+    </Key>
+    <Property Name="TK" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MK" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MACV" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MANV" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="NHANVIEN" Relationship="Self.fk01_TK" FromRole="TAIKHOAN" ToRole="NHANVIEN" />
+  </EntityType>
+  <Association Name="fk01_CTHD">
+    <End Role="HOADON" Type="Self.HOADON" Multiplicity="1" />
+    <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOADON">
+        <PropertyRef Name="SOHD" />
+      </Principal>
+      <Dependent Role="CTHD">
+        <PropertyRef Name="SOHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk02_CTHD">
+    <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
+    <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SANPHAM">
+        <PropertyRef Name="MASP" />
+      </Principal>
+      <Dependent Role="CTHD">
+        <PropertyRef Name="MASP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk02_HD">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
+    <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="HOADON">
+        <PropertyRef Name="MANV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fklsp_SP">
+    <End Role="LOAISP" Type="Self.LOAISP" Multiplicity="0..1" />
+    <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAISP">
+        <PropertyRef Name="MALOAI" />
+      </Principal>
+      <Dependent Role="SANPHAM">
+        <PropertyRef Name="MALOAI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk02_NV">
+    <End Role="LUONG" Type="Self.LUONG" Multiplicity="0..1" />
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LUONG">
+        <PropertyRef Name="MALUONG" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="MALUONG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk01_PH">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
+    <End Role="PHANHOI" Type="Self.PHANHOI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="PHANHOI">
+        <PropertyRef Name="MANV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk01_TK">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+    <End Role="TAIKHOAN" Type="Self.TAIKHOAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="TAIKHOAN">
+        <PropertyRef Name="MANV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLBHEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CTHDs" EntityType="Self.CTHD" />
+    <EntitySet Name="HOADONs" EntityType="Self.HOADON" />
+    <EntitySet Name="LOAISPs" EntityType="Self.LOAISP" />
+    <EntitySet Name="LUONGs" EntityType="Self.LUONG" />
+    <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
+    <EntitySet Name="PHANHOIs" EntityType="Self.PHANHOI" />
+    <EntitySet Name="SANPHAMs" EntityType="Self.SANPHAM" />
+    <EntitySet Name="TAIKHOANs" EntityType="Self.TAIKHOAN" />
+    <AssociationSet Name="fk01_CTHD" Association="Self.fk01_CTHD">
+      <End Role="HOADON" EntitySet="HOADONs" />
+      <End Role="CTHD" EntitySet="CTHDs" />
+    </AssociationSet>
+    <AssociationSet Name="fk02_CTHD" Association="Self.fk02_CTHD">
+      <End Role="SANPHAM" EntitySet="SANPHAMs" />
+      <End Role="CTHD" EntitySet="CTHDs" />
+    </AssociationSet>
+    <AssociationSet Name="fk02_HD" Association="Self.fk02_HD">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="HOADON" EntitySet="HOADONs" />
+    </AssociationSet>
+    <AssociationSet Name="fklsp_SP" Association="Self.fklsp_SP">
+      <End Role="LOAISP" EntitySet="LOAISPs" />
+      <End Role="SANPHAM" EntitySet="SANPHAMs" />
+    </AssociationSet>
+    <AssociationSet Name="fk02_NV" Association="Self.fk02_NV">
+      <End Role="LUONG" EntitySet="LUONGs" />
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="fk01_PH" Association="Self.fk01_PH">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="PHANHOI" EntitySet="PHANHOIs" />
+    </AssociationSet>
+    <AssociationSet Name="fk01_TK" Association="Self.fk01_TK">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="TAIKHOAN" EntitySet="TAIKHOANs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

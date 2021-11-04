@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLBHModelStoreContainer" CdmEntityContainer="QLBHEntities1">
+    <EntitySetMapping Name="CTHDs">
+      <EntityTypeMapping TypeName="QLBHModel.CTHD">
+        <MappingFragment StoreEntitySet="CTHD">
+          <ScalarProperty Name="SOHD" ColumnName="SOHD" />
+          <ScalarProperty Name="MASP" ColumnName="MASP" />
+          <ScalarProperty Name="SL" ColumnName="SL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOADONs">
+      <EntityTypeMapping TypeName="QLBHModel.HOADON">
+        <MappingFragment StoreEntitySet="HOADON">
+          <ScalarProperty Name="SOHD" ColumnName="SOHD" />
+          <ScalarProperty Name="NGHD" ColumnName="NGHD" />
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="TRIGIA" ColumnName="TRIGIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAISPs">
+      <EntityTypeMapping TypeName="QLBHModel.LOAISP">
+        <MappingFragment StoreEntitySet="LOAISP">
+          <ScalarProperty Name="MALOAI" ColumnName="MALOAI" />
+          <ScalarProperty Name="TENLOAI" ColumnName="TENLOAI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LUONGs">
+      <EntityTypeMapping TypeName="QLBHModel.LUONG">
+        <MappingFragment StoreEntitySet="LUONG">
+          <ScalarProperty Name="MALUONG" ColumnName="MALUONG" />
+          <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHANVIENs">
+      <EntityTypeMapping TypeName="QLBHModel.NHANVIEN">
+        <MappingFragment StoreEntitySet="NHANVIEN">
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="MAIL" ColumnName="MAIL" />
+          <ScalarProperty Name="MACV" ColumnName="MACV" />
+          <ScalarProperty Name="MALUONG" ColumnName="MALUONG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHANHOIs">
+      <EntityTypeMapping TypeName="QLBHModel.PHANHOI">
+        <MappingFragment StoreEntitySet="PHANHOI">
+          <ScalarProperty Name="SOPH" ColumnName="SOPH" />
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+          <ScalarProperty Name="NGPH" ColumnName="NGPH" />
+          <ScalarProperty Name="LOIPH" ColumnName="LOIPH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SANPHAMs">
+      <EntityTypeMapping TypeName="QLBHModel.SANPHAM">
+        <MappingFragment StoreEntitySet="SANPHAM">
+          <ScalarProperty Name="MASP" ColumnName="MASP" />
+          <ScalarProperty Name="TENSP" ColumnName="TENSP" />
+          <ScalarProperty Name="MALOAI" ColumnName="MALOAI" />
+          <ScalarProperty Name="DVT" ColumnName="DVT" />
+          <ScalarProperty Name="GIA" ColumnName="GIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAIKHOANs">
+      <EntityTypeMapping TypeName="QLBHModel.TAIKHOAN">
+        <MappingFragment StoreEntitySet="TAIKHOAN">
+          <ScalarProperty Name="TK" ColumnName="TK" />
+          <ScalarProperty Name="MK" ColumnName="MK" />
+          <ScalarProperty Name="MACV" ColumnName="MACV" />
+          <ScalarProperty Name="CV" ColumnName="CV" />
+          <ScalarProperty Name="MANV" ColumnName="MANV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
